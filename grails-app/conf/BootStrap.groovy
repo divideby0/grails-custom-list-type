@@ -1,14 +1,21 @@
 class BootStrap {
 
     def init = { servletContext ->
-    	Person p = new Person(
-    		name: 'John Smith',
+		RegularPerson john = new RegularPerson(
+			name: 'John Smith',
+			birthday: new Birthday(new Date())
+		)
+		john.save(flush: true)
+		println "john errors: ${john.errors.allErrors}"
+		
+    	BornAgainPerson jane = new BornAgainPerson(
+    		name: 'Jane Smith',
     		birthdays: [
     			new Birthday(new Date())
     		]
     	)
-    	p.save(flush: true)
-    	println "errors: ${p.errors.allErrors}" 
+    	jane.save(flush: true)
+		println "jane errors: ${jane.errors.allErrors}"
     }
     def destroy = {
     }

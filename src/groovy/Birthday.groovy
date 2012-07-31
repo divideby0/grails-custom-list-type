@@ -1,6 +1,8 @@
 class Birthday implements Comparable, Serializable {
-    Date date
-    Birthday(Date date) {
+
+	Date date
+    
+	Birthday(Date date) {
         this.date = date
     }
 

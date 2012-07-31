@@ -9,6 +9,7 @@ class BirthdayType extends AbstractMappingAwareCustomTypeMarshaller<Birthday, DB
 	BirthdayType() {
 		super(Birthday)
 	}
+	
     @Override
     protected Object writeInternal(PersistentProperty property, String key, Birthday value, DBObject nativeTarget) {
         final converted = value.date.time
